@@ -16,20 +16,18 @@ def add_task():
 # Function to view a specific task by Index
 def view_task_index():
     show_tasks()
-    task_index = int(input("Enter the task number whose descritption you want to view: ")) - 1
     
     # Find the task with the given task Index
     task_found = False
-    for task in tasks:
-        if task['task_id'] == task_index + 1:
+    for index, task in enumerate(tasks):
             status = "Completed" if task['completed'] else "Not Completed"
-            print(f"Description: {task['description']}, Status: {status}")
+            print(f"Description: {task['description']}, Status: {status} ")
             task_found = True
             delete_task()
             break
     
     if not task_found:
-        print(f"No task found {task_index + 1}.")
+        print(f"No task found.")
     
 # Define a function to show the tasks
 def show_tasks():
